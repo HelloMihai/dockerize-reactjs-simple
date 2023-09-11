@@ -1,11 +1,11 @@
 # project intended to be run inside Docker containers
-- Pull the source code
-- If pulled for the first time or the package.json changed run `docker-compose build`
-- Then, run the following command to start the environment. `docker-compose up -d`
+- clone this branch
+- if first time or updated package.json `docker-compose build`
+- run to start container `docker-compose up -d`
 - optional
-    - To see the logs of your app `docker-compose logs -f web`
-    - To see and follow the logs of your tests `docker-compose logs -f test`
-    - If you need to install any npm package
+    - see the logs of your app `docker-compose logs -f web`
+    - see and follow the logs of your tests `docker-compose logs -f test`
+    - install npm package in running container
         - Eg: you added a new package to develop `docker-compose exec web npm install package-name`
 - stop the containers `docker-compose down`
 - Load in browser `https://localhost:3000`
