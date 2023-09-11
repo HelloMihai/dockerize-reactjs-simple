@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:14
 
 ##
 # Here we installed node_modules inside another temporary directory namely cache . Later we will copy this node_module to the app directory once the image is built.
