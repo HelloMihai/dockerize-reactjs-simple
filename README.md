@@ -1,3 +1,4 @@
+# project intended to be run inside Docker containers
 - Pull the source code
 - If pulled for the first time or the package.json changed run
 `docker-compose build`
