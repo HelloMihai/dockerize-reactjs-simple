@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import MyButtonExternalFile from './components/MyButtonExternalFile';
 
 function MyButton() {
   return (
@@ -24,6 +25,7 @@ function App() {
           Learn React
         </a>
         <MyButton />
+        <MyButtonExternalFile />
       </header>
     </div>
   );
