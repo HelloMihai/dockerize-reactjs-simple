@@ -17,6 +17,7 @@ services: # each service below starts another container
     command: >
       bash -c "cp -rfu /cache/node_modules/. /app/node_modules/
       && npm start"
+  # sample test container just for running the tests
   test: # test suit for the react app.  Different container for running our tests. 
     build:
       context: .
@@ -24,4 +25,6 @@ services: # each service below starts another container
     volumes:
       - .:/app
       - /app/node_modules
-    command: ["npm", "test"]
+    command: >
+      bash -c "cp -rfu /cache/node_modules/. /app/node_modules/
+      && npm test"
