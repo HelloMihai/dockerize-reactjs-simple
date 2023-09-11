@@ -1,3 +1,4 @@
+# copy of docker-compose mainly for Docker Desktop - Dev Environment control
 version: "3.6"
 services: # each service below starts another container
   web: # web app
