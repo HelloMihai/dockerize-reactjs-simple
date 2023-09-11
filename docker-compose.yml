@@ -1,0 +1,26 @@
+version: "3.6"
+services: # each service below starts another container
+  web: # web app
+    build:
+      context: . # we set the build context to the current folder .of the host machine
+      dockerfile: ./.docker/dev/Dockerfile # we provide the Dockerfile location which we want to use for building this (web) service.
+    restart: unless-stopped
+    # Also In our particular case, we are mapping everything inside the current context . to the app folder inside the container. If we do not map back node_modules from the container to the host then the host’s file will replace everything inside the containr's app folder. In this way, our node_modules folder generated earlier in the app folder inside the container will also get removed because we do not have any node module folder in our host machine. So we must map backnode_modules from the container to the host. Otherwise, our volume mapping.:/app will remove node_modules folder inside the container. Hence our setup will not work.
+    volumes:
+      - ".:/app" # The volume maps everything in the host machine to the app folder inside the container.
+      - "/app/node_modules" # Here we map node_modules folder inside the container to the host machine. Remember we did npm install in the app folder inside the docker container. So we have a node_modules inside the docker container which we can map back to the host machine.
+    ports:
+      - 3000:3000 # we map the port so that we can access our react app running on port 3000 inside the container from outside i.e host machine.
+
+    # with the cp -rfu /cache/node_modules/. /app/node_modules/ command, we copy node_modules from the temporary cache directory to the working directory after the image is built. The -u flag is important because we want to copy files only if anything is changed in the node_modules folder. In this way, we won’t copy files every time we run docker-compose up to start our development.
+    command: >
+      bash -c "cp -rfu /cache/node_modules/. /app/node_modules/  
+      && npm start"
+  test: # test suit for the react app.  Different container for running our tests. 
+    build:
+      context: .
+      dockerfile: ./.docker/dev/Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: ["npm", "test"]
