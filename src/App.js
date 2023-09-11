@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import MyButtonExternalFile from './components/MyButtonExternalFile';
+import ObjUseState from './components/ObjUseState';
 
 function MyButton() {
   return (
@@ -26,6 +27,7 @@ function App() {
         </a>
         <MyButton />
         <MyButtonExternalFile />
+        <ObjUseState />
       </header>
     </div>
   );
