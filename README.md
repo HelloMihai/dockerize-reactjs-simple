@@ -17,4 +17,5 @@
 `https://localhost:3000`
 - VS Code - connect to remote session
     - need Dev Containers addon from Microsoft
-    - open folder `/app`
+    - open folder `/app/` (command + o)
+    - editing files will live reload browser
