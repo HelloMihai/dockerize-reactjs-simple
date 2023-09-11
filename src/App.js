@@ -3,7 +3,7 @@ import './App.css';
 
 function MyButton() {
   return (
-    <button>Im a button</button>
+    <button className="my-button">Im a button</button>
   )
 }
 

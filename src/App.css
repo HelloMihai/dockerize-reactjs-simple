@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.my-button {
+  color: #fff;
+  background-color: transparent;
+  border-radius: 2px;
+  border: none;
+}
