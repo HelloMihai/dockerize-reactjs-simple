@@ -13,8 +13,9 @@ services: # each service below starts another container
       - 3000:3000 # we map the port so that we can access our react app running on port 3000 inside the container from outside i.e host machine.
 
     # with the cp -rfu /cache/node_modules/. /app/node_modules/ command, we copy node_modules from the temporary cache directory to the working directory after the image is built. The -u flag is important because we want to copy files only if anything is changed in the node_modules folder. In this way, we won’t copy files every time we run docker-compose up to start our development.
+    # copy Deckerfile installed node_modules from cache folder to working folder
     command: >
-      bash -c "cp -rfu /cache/node_modules/. /app/node_modules/ # copy Deckerfile installed node_modules from cache folder to working folder
+      bash -c "cp -rfu /cache/node_modules/. /app/node_modules/
       && npm start"
   test: # test suit for the react app.  Different container for running our tests. 
     build:
