@@ -2,14 +2,17 @@ import logo from './logo.svg';
 import './App.css';
 import MyButtonExternalFile from './components/MyButtonExternalFile';
 import ObjUseState from './components/ObjUseState';
+import { useState } from 'react';
 
 function MyButton() {
+  const [ count, setMyCountWhateverName ] = useState(73);
   return (
-    <button className="my-button">Im a button</button>
+    <button className="my-button">Im a button {count}</button>
   )
 }
 
 function App() {
+  const [ count, setMyCountWhateverName ] = useState(37);
   return (
     <div className="App">
       <header className="App-header">
@@ -23,7 +26,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React {count}
         </a>
         <MyButton />
         <MyButtonExternalFile />
