@@ -3,6 +3,7 @@ import './App.css';
 import MyButtonExternalFile from './components/MyButtonExternalFile';
 import ObjUseState from './components/ObjUseState';
 import { useState } from 'react';
+import ProteinCalculator from './components/ProteinCalculator';
 
 function MyButton() {
   const [ count, setMyCountWhateverName ] = useState(73);
@@ -31,6 +32,7 @@ function App() {
         <MyButton />
         <MyButtonExternalFile />
         <ObjUseState />
+        <ProteinCalculator />
       </header>
     </div>
   );
